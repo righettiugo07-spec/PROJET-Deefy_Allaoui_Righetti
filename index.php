@@ -8,6 +8,7 @@ use iutnc\deefy\Action\DefaultAction;
 use iutnc\deefy\Action\ListPlaylistsAction;
 use iutnc\deefy\Dispatch\Dispatcher;
 use iutnc\deefy\Exception\RouterException;
+use iutnc\deefy\Action\SelectPlaylistAction;
 
 //Creation du dispatcher
 $dispatcher = new Dispatcher();
@@ -15,6 +16,7 @@ $dispatcher = new Dispatcher();
 //Declaration des routes
 $dispatcher->addRoute('default', DefaultAction::class);
 $dispatcher->addRoute('list-playlists', ListPlaylistsAction::class);
+$dispatcher->addRoute('select-playlist', SelectPlaylistAction::class);
 
 try {
 
