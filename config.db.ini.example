@@ -1,0 +1,5 @@
+driver=mysql
+username=VOTRE_LOGIN_BD
+password=VOTRE_MOT_DE_PASSE_BD
+host=localhost
+database=VOTRE_BASE

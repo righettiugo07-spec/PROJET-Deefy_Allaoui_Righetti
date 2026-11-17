@@ -20,3 +20,9 @@ Desktop.ini
 
 /cache/
 /tmp/
+
+# Deefy : configuration de la base et fichiers envoyes
+/*.ini
+/audio/*
+!/audio/.gitkeep
+!/audio/exemple.mp3
