@@ -39,6 +39,15 @@ class DeefyRepository
         );
     }
 
+    //F4 : enregistre une nouvelle playlist vide et renvoie son identifiant
+    public function creerPlaylist(string $nom): int
+    {
+        $requete = $this->pdo->prepare('INSERT INTO playlist (nom) VALUES (?)');
+        $requete->execute([$nom]);
+
+        return (int) $this->pdo->lastInsertId();
+    }
+
     //Recup de tt les playlists enregistrées
     public function getPlaylists(): array
     {
