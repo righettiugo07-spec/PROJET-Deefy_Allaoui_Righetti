@@ -5,12 +5,16 @@ session_start();
 require_once __DIR__ . '/vendor/autoload.php';
 
 use iutnc\deefy\Action\DefaultAction;
+use iutnc\deefy\Action\ListPlaylistsAction;
 use iutnc\deefy\Dispatch\Dispatcher;
 use iutnc\deefy\Exception\RouterException;
 
+//Creation du dispatcher
 $dispatcher = new Dispatcher();
 
+//Declaration des routes
 $dispatcher->addRoute('default', DefaultAction::class);
+$dispatcher->addRoute('list-playlists', ListPlaylistsAction::class);
 
 try {
 
@@ -36,6 +40,7 @@ try {
     <header>
         <nav>
             <a href="index.php">Accueil</a>
+            <a href="index.php?action=list-playlists">Mes playlists</a>
         </nav>
     </header>
 
