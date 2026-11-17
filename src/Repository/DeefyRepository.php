@@ -10,7 +10,7 @@ class DeefyRepository
 
     public function __construct()
     {
-        //On recup les info de connexion
+        //Recup de la config de la BD
         $configFile = __DIR__ . '/../../config.db.ini';
 
         if (!is_file($configFile)) {
@@ -23,7 +23,7 @@ class DeefyRepository
             throw new \RuntimeException('Erreur de lecture de la configuration');
         }
 
-        //Connexion a la BD
+        //Connexion à la BD avec PDO
         $dsn = $config['driver']
              . ':host=' . $config['host']
              . ';dbname=' . $config['database']
@@ -34,19 +34,28 @@ class DeefyRepository
             $config['username'],
             $config['password'],
             [
-                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-                PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
+                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
             ]
         );
     }
 
-    //Recup ttes les playlists enregistre
+    //Recup de tt les playlists enregistrées
     public function getPlaylists(): array
     {
         $sql = 'SELECT id, nom FROM playlist ORDER BY id';
 
         $resultat = $this->pdo->query($sql);
 
-        return $resultat->fetchAll();
+        $resultat->setFetchMode(PDO::FETCH_ASSOC);
+
+        $playlists = [];
+
+        while ($ligne = $resultat->fetch()) {
+            $playlists[] = $ligne;
+        }
+
+        $resultat->closeCursor();
+
+        return $playlists;
     }
 }
