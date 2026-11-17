@@ -1,0 +1,13 @@
+body { font-family: Arial, sans-serif; margin: 0; color: #222; background: #f5f6fa; }
+header { background: #2d3561; color: #fff; padding: 1rem 1.5rem; }
+header h1 { margin: 0 0 .5rem; }
+nav a { color: #fff; margin-right: 1.2rem; }
+main { max-width: 900px; margin: 1.5rem auto; padding: 0 1rem; }
+table { border-collapse: collapse; width: 100%; background: #fff; }
+th, td { border: 1px solid #ccc; padding: .5rem; text-align: left; }
+th { background: #e4e7f5; }
+label { display: block; margin-bottom: .25rem; font-weight: bold; }
+input[type="text"], input[type="number"] { width: 100%; max-width: 400px; padding: .4rem; box-sizing: border-box; }
+button { padding: .5rem 1rem; cursor: pointer; }
+.erreur { color: #a00; font-weight: bold; }
+.succes { color: #060; font-weight: bold; }
