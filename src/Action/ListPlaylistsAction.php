@@ -8,6 +8,7 @@ class ListPlaylistsAction extends ActionAbs
 {
     public function execute(): string
     {
+        //On recup les playlists dans la BD
         $repository = new DeefyRepository();
         $playlists = $repository->getPlaylists();
 
@@ -27,7 +28,12 @@ class ListPlaylistsAction extends ActionAbs
                 FILTER_SANITIZE_SPECIAL_CHARS
             );
 
-            $html .= '<li>' . $nom . '</li>';
+            //Id de la playlist
+            $id = (int) $playlist['id'];
+
+            //Lien qui permet de sélectionner une playlist
+            $html .= '<li><a href="index.php?action=select-playlist&amp;id='
+                   . $id . '">' . $nom . '</a></li>';
         }
 
         $html .= '</ul>';

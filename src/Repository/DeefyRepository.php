@@ -58,4 +58,53 @@ class DeefyRepository
 
         return $playlists;
     }
+
+    //On récupère une playlist avec son id
+    public function getPlaylistById(int $id): ?array {
+        $sql = 'SELECT id, nom FROM playlist WHERE id = :id';
+
+        //Requête préparée contre les injections SQL
+        $resultat = $this->pdo->prepare($sql);
+
+        $resultat->bindParam(':id', $id, PDO::PARAM_INT);
+
+        $resultat->execute();
+
+        $playlist = $resultat->fetch(PDO::FETCH_ASSOC);
+
+        $resultat->closeCursor();
+
+        if ($playlist === false) {
+            return null;
+        }
+
+        return $playlist;
+    }
+
+    //On récupère les pistes d'une playlist
+    public function getTracksByPlaylist(int $id): array {
+        $sql = 'SELECT t.id, t.titre, t.genre, t.duree, t.type
+                FROM track t
+                JOIN playlist2track pt ON t.id = pt.id_track
+                WHERE pt.id_pl = :id
+                ORDER BY pt.no_piste_dans_liste';
+
+        $resultat = $this->pdo->prepare($sql);
+
+        $resultat->bindParam(':id', $id, PDO::PARAM_INT);
+
+        $resultat->execute();
+
+        $resultat->setFetchMode(PDO::FETCH_ASSOC);
+
+        $pistes = [];
+
+        while ($ligne = $resultat->fetch()) {
+            $pistes[] = $ligne;
+        }
+
+        $resultat->closeCursor();
+
+        return $pistes;
+    }
 }
