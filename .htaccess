@@ -1,0 +1,13 @@
+RewriteEngine On
+
+# RewriteBase à adapter lors du déploiement sur webetu
+# RewriteBase /www/votre-identifiant-ent-ici/deefy
+
+# Interdire l'accès au dossier SQL
+RewriteRule ^sql(/.*|)$ - [NC,F]
+
+# Interdire l'accès au dossier contenant le code PHP
+RewriteRule ^src(/.*|)$ - [NC,F]
+
+# Interdire l'accès aux fichiers .ini
+RewriteRule \.ini$ - [NC,F]

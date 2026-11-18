@@ -1,0 +1,10 @@
+{
+    "name": "allaoui-righetti/deefy",
+    "description": "Mini-projet Deefy",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "iutnc\\deefy\\": "src/"
+        }
+    }
+}
