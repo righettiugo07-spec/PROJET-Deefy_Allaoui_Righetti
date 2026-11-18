@@ -11,6 +11,7 @@ use iutnc\deefy\Exception\RouterException;
 use iutnc\deefy\Action\SelectPlaylistAction;
 use iutnc\deefy\Action\CreatePlaylistAction;
 use iutnc\deefy\Action\AddTrackAction;
+use iutnc\deefy\Action\CurrentPlaylistAction;
 
 //Creation du dispatcher
 $dispatcher = new Dispatcher();
@@ -22,6 +23,7 @@ $dispatcher->addRoute('select-playlist', SelectPlaylistAction::class);
 
 $dispatcher->addRoute('create-playlist', CreatePlaylistAction::class);
 $dispatcher->addRoute('add-track', AddTrackAction::class);
+$dispatcher->addRoute('current-playlist', CurrentPlaylistAction::class);
 
 try {
 
@@ -48,6 +50,7 @@ try {
         <nav>
             <a href="index.php">Accueil</a>
             <a href="index.php?action=list-playlists">Mes playlists</a>
+            <a href="index.php?action=current-playlist">Playlist courante</a>
         </nav>
     </header>
 
