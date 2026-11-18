@@ -8,6 +8,7 @@ use iutnc\deefy\Action\DefaultAction;
 use iutnc\deefy\Action\ListPlaylistsAction;
 use iutnc\deefy\Dispatch\Dispatcher;
 use iutnc\deefy\Exception\RouterException;
+use iutnc\deefy\Action\SelectPlaylistAction;
 use iutnc\deefy\Action\CreatePlaylistAction;
 use iutnc\deefy\Action\AddTrackAction;
 
