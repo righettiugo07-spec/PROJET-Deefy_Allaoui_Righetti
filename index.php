@@ -18,6 +18,7 @@ $dispatcher = new Dispatcher();
 //Declaration des routes
 $dispatcher->addRoute('default', DefaultAction::class);
 $dispatcher->addRoute('list-playlists', ListPlaylistsAction::class);
+$dispatcher->addRoute('select-playlist', SelectPlaylistAction::class);
 
 $dispatcher->addRoute('create-playlist', CreatePlaylistAction::class);
 $dispatcher->addRoute('add-track', AddTrackAction::class);
