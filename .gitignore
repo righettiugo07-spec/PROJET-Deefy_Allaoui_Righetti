@@ -21,3 +21,7 @@ Desktop.ini
 /cache/
 /tmp/
 /config.db.ini
+
+# fichiers audio envoyes par les utilisateurs
+/audio/*
+!/audio/.gitkeep
